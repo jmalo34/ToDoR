@@ -58,7 +58,7 @@
         return $app['twig']->render('index.html.twig');
     });
 
-    $app->post("/delete_categories", function() use ($app)
+    $app->post("/delete_category", function() use ($app)
     {
         Category::deleteAll();
         return $app['twig']->render('index.html.twig');

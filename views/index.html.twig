@@ -2,15 +2,15 @@
 <html>
 <head>
     <title>Another To Do List</title>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
 </head>
 <body>
     <h1>Another To Do List</h1>
 
     <p>Create a new category:</p>
     <form action="/categories" method="post">
-        <label for="name">Category name:</label>
         <input id="name" name="name" type="text">
-
+        <p></p>
         <button type="submit">Add category</button>
     </form>
 
@@ -24,5 +24,9 @@
     {% else %}
         <p>There are no categories yet!</p>
     {% endif %}
+    <form action='/delete_category' method='post'>
+        <button type='submit' class='btn btn-xs'>Clear</button>
+        <p>(Clearing all categories will also clear the database of all tasks in each category)</p>
+    </form>
 </body>
 </html>
