@@ -1,31 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Another To Do List</title>
+    <title>{{ category.getName }}</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
 </head>
 <body>
-    <h1>{{ category.getName }}</h1>
-
+    <div class='container'>
+    <h1><u>Another To Do List</u></h1>
+    <h3><em>{{ category.getName }}</em></h3>
     {% if tasks is not empty %}
-        <p>Here are the tasks:</p>
         <ul>
             {% for task in tasks %}
                 <li>{{ task.getDescription }}</li>
             {% endfor %}
         </ul>
     {% endif %}
-
-    <h4>Add a task</h4>
-    <form action='/tasks' method='post'>
-        <input id="category_id" name="category_id" type="hidden" value="{{ category.getId() }}">
-        <label for='description'>Task Description</label>
-        <input id='description' name='description' type='text'>
-        <button type='submit'>Add task</button>
-    </form>
+    <div class='form-group'>
+        <form action='/tasks' method='post'>
+            <input id='category_id' name='category_id' type='hidden' value="{{ category.getId() }}">
+            <input id='description' name='description' class='form-control' style='width:50%' type='text'>
+            <button type='submit' class='btn-success btn-m'>Add task</button>
+        </form>
+    </div>
     <form action='/delete_tasks' method='post'>
-        <button type='submit'>delete</button>
+        <button type='submit' class='btn btn-xs'>Clear List</button>
     </form>
     <!-- rewrite this function in the app so only the tasks get deleted when using the method from this page. currenlty, all categories are being dropped. -->
-    <p><a href='/'>Home</a></p>
+    <div class='text-center'>
+        <p><a href='/'>Home</a></p>
+    </div>
+</div>
 </body>
 </html>
