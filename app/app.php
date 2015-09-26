@@ -19,11 +19,13 @@
         return $app['twig']->render('index.html.twig', array('categories' => Category::getAll()));
     });
 
+//Do I need this "$app->get("/tasks", func... blahblah blaah" as written below? still? what is this tasks.twig being used for? display? nah? then what? isn't it what i needed to have prior to the get written further down? the "$app->get("/categories/{id}", function ($id) use ($app)"?
     $app->get("/tasks", function() use ($app)
     {
         return $app['twig']->render('tasks.html.twig', array('tasks' => Task::getAll()));
     });
 
+//this "$app->get("/categories", function() use($app)" below is also obsolete/unneeded, as it was the one directly above here, right?
     $app->get("/categories", function() use ($app)
     {
         return $app['twig']->render('category.html.twig', array('categories' => Category::getAll()));
@@ -55,7 +57,7 @@
     $app->post("/delete_tasks", function() use ($app)
     {
         Task::deleteAll();
-        return $app['twig']->render('index.html.twig');
+        return $app['twig']->render('tasks.html.twig');
     });
 
     $app->post("/delete_category", function() use ($app)

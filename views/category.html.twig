@@ -16,8 +16,9 @@
         </ul>
     {% endif %}
     <div class='form-group'>
-        <form action='/tasks' method='post'>
+        <form action="/tasks" method='post'>
             <input id='category_id' name='category_id' type='hidden' value="{{ category.getId() }}">
+            <label for='description'>Task Description</label>
             <input id='description' name='description' class='form-control' style='width:50%' type='text'>
             <button type='submit' class='btn-success btn-m'>Add task</button>
         </form>
