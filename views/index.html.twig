@@ -11,7 +11,7 @@
         <h4>Here are all your categories:</h4>
         <ul>
             {% for category in categories %}
-                <li><a href="/categories/{{ category.getName }}">{{ category.getName }}</a></li>
+                <li><a href="/categories/{{ category.getId }}">{{ category.getName }}</a></li>
             {% endfor %}
         </ul>
     {% else %}
